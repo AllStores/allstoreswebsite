@@ -1,12 +1,8 @@
 <!DOCTYPE HTML>
-<!--
-	ZeroFour by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 	<head>
-		<title>ZeroFour by HTML5 UP</title>
+		<title>All Stores</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -16,6 +12,7 @@
 		<script src="static/js/skel.min.js"></script>
 		<script src="static/js/skel-layers.min.js"></script>
 		<script src="static/js/init.js"></script>
+		<script src="static/js/allstores.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="static/css/skel.css" />
 			<link rel="stylesheet" href="static/css/style.css" />
@@ -23,6 +20,18 @@
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="static/css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="static/css/ie/v9.css" /><![endif]-->
+		
+		
+		 <style>
+			.frmSearch {width:95%;height:80%;z-index:-1;}
+			#merchant-data{float: left;list-style: none;margin: 0;padding: 0;width: 100%;height:200px;overflow:auto;}
+			#merchant-data li{padding: 3px; background:#FAFAFA;border-bottom:#F0F0F0 1px solid;font-size:smaller}
+			#merchant-data li:hover{background:#F0F0F0;}
+			#search-box{padding: 10px;border: #F0F0F0 1px solid;margin-right:auto;  margin-left: 40%;width: 30%;}
+         </style>
+	
+		
+		
 	</head>
 	<body class="homepage">
 
@@ -35,7 +44,7 @@
 							<div class="inner">
 							
 								<!-- Logo -->
-									<h1><a href="home" id="logo">ZeroFour</a></h1>
+									<h1><a href="home" id="logo">AllStores</a></h1>
 								
 								<!-- Nav -->
 									<nav id="nav">
@@ -58,9 +67,9 @@
 													<li><a href="#">Veroeros feugiat</a></li>
 												</ul>
 											</li>
-											<li><a href="leftsidebar">Left Sidebar</a></li>
-											<li><a href="rightsidebar">Right Sidebar</a></li>
-											<li><a href="nosidebar">No Sidebar</a></li>
+											<li><a href="#">Leftsidebar</a></li>
+											<li><a href="#">Rightsidebar</a></li>
+											<li><a href="#">Nosidebar</a></li>
 										</ul>
 									</nav>
 							
@@ -69,11 +78,14 @@
 
 					<!-- Banner -->
 						<div id="banner">
-							<h2><strong>ZeroFour:</strong> A free responsive site template
-							<br />
-							built on HTML5 and CSS3 by <a href="http://html5up.net">HTML5 UP</a></h2>
-							<p>Does this statement make you want to click the big shiny button?</p>
-							<a href="#" class="button big icon fa-check-circle">Yes it does</a>
+							<h2>
+							Your stores under one roof . Search your store</h2>
+														
+							<div class="frmSearch" width="400px" height="400px">
+	                         <%@ include file="./searchbar.jsp" %>
+	                        </div>
+							
+							
 						</div>
 
 				</div>

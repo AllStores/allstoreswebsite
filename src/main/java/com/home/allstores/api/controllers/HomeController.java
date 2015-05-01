@@ -18,8 +18,8 @@ public class HomeController
 	{
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(WebsiteConstants.HOME_VIEW_NAME);
-		mav.addObject(WebsiteConstants.JS_VERSION_STRING, WebsiteConstants.JS_VERSION_MAP);
-		mav.addObject(WebsiteConstants.CSS_VERSION_STRING, WebsiteConstants.CSS_VERSION_MAP);
+		//mav.addObject(WebsiteConstants.JS_VERSION_STRING, WebsiteConstants.JS_VERSION_MAP);
+		//mav.addObject(WebsiteConstants.CSS_VERSION_STRING, WebsiteConstants.CSS_VERSION_MAP);
 		return mav;
 	}
 }
