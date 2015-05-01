@@ -14,9 +14,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `allstores`
 --
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `stores_metadata`
 --
