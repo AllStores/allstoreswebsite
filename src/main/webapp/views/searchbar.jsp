@@ -13,7 +13,7 @@
 
 <body>
 
-	<form name="form-car_v1" action="./searchresults">
+	<form  action="./searchresults">
 		<div class="typeahead-container">
 			<div class="typeahead-field">
 
