@@ -7,7 +7,7 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="static/css/ie/html5shiv.js"></script><![endif]-->
-		<script src="static/js/jquery.min.js"></script>
+		<script src="static/js/jquery-2.1.4.min.js"></script>
 		<script src="static/js/jquery.dropotron.min.js"></script>
 		<script src="static/js/skel.min.js"></script>
 		<script src="static/js/skel-layers.min.js"></script>
@@ -29,9 +29,7 @@
 			#merchant-data li:hover{background:#F0F0F0;}
 			#search-box{padding: 10px;border: #F0F0F0 1px solid;margin-right:auto;  margin-left: 40%;width: 30%;}
          </style>
-	
-		
-		
+         
 	</head>
 	<body class="homepage">
 
@@ -75,14 +73,13 @@
 							
 							</div>
 						</header>
-
+ <%@ include file="./searchbar.jsp" %> 
 					<!-- Banner -->
 						<div id="banner">
-							<h2>
-							Your stores under one roof . Search your store</h2>
+							<h3 style="color: white;"> Your stores under one roof . Search your store</h3>
 														
 							<div class="frmSearch" width="400px" height="400px">
-	                         <%@ include file="./searchbar.jsp" %>
+	                        
 	                        </div>
 							
 							

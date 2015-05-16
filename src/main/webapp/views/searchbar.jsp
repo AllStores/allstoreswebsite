@@ -5,41 +5,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>All Stores</title>
-
-<script type="text/javascript">
-	$(document).ready(
-			function() {
-
-				getStoresMetadata();
-
-				$("#search-box").keyup(
-						function() {
-							$("#search-box").css("background",
-									"#FFF url(loadericon.gif) no-repeat 100%");
-							$("#merchant-data").empty();
-							if ($(this).val()) {
-								filterData($(this).val());
-							} else {
-								$("#search-box").css("background", "#FFF");
-							}
-						});
-
-			});
-</script>
-
+<script src="static/js/jquery.typeahead.js"></script>
+<link rel="stylesheet" href="static/css/jquery.typeahead.css">
 </head>
 
 
 
 <body>
-	<form method="POST" action="./searchresults.php">
-		<input type="text" id="search-box" placeholder="Type here"  autocomplete="off" /> <input type="submit" value="Search" class="btn btn-info btn-lg" />
+
+	<form name="form-car_v1" action="./searchresults">
+		<div class="typeahead-container">
+			<div class="typeahead-field">
+
+				<span class="typeahead-query"> <input id="searchbox"
+					type="search" placeholder="Search" autocomplete="off">
+				</span> <span class="typeahead-button">
+					<button type="submit">
+						<i class="typeahead-search-icon"></i>
+					</button>
+				</span>
+
+			</div>
+		</div>
 	</form>
-	
-	<div id="suggesstion-box"
-		style="margin-right: auto; margin-left: 40%; width: 30%;">
-		<!--    Placeholder for metadata search items listing    -->
-		<ul id="merchant-data" style="float: left; list-style: none; margin: 0; padding: 0; width: 100%; height: 100%;"></ul>
-	</div>
+
+
 </body>
 </html>

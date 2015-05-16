@@ -1,17 +1,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
-        http://www.springframework.org/schema/beans     
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context-3.0.xsd
-        http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx.xsd
+        ">
 
 
 	<context:annotation-config />
-	<context:component-scan base-package="com.home.allstores.api.controllers"></context:component-scan>
+	<context:component-scan base-package="com.home.allstores.api.controller"></context:component-scan>
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <property name="alwaysUseFullPath" value="true"></property>
     </bean> 
@@ -24,6 +24,49 @@
                 <value>classpath:website.properties</value>
             </list>
         </property>
+    </bean>
+    
+    <bean id="storeMetadataService"
+        class="com.home.allstores.persistence.service.StoreMetadataServiceImpl"
+        />
+        
+        <bean id="storeMetadataDAO"
+        class="com.home.allstores.persistence.dao.StoreMetadataDAOImpl"
+        />
+        
+        
+        
+    
+    <bean id="propertyConfigurer"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+        p:location="/WEB-INF/local.properties" />
+        
+     <bean id="dataSource"
+        class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
+        p:driverClassName="com.mysql.jdbc.Driver"
+        p:url="jdbc:mysql://localhost:3306/allstores" p:username="allstores"
+        p:password="allstores" />
+ 
+ 
+    <bean id="sessionFactory"
+    class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+    <property name="configLocation">
+        <value>classpath:hibernate.cfg.xml</value>
+    </property>
+    <property name="hibernateProperties">
+        <props>
+            <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+            <prop key="hibernate.show_sql">true</prop>
+        </props>
+    </property>
+</bean>
+ 
+    <tx:annotation-driven />
+     <bean id="transactionManager"
+        class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+        <property name="sessionFactory" ref="sessionFactory" />
     </bean>
     
     <mvc:resources mapping="/static/**" location="/static/" />
